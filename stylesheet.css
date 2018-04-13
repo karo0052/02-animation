@@ -1,0 +1,396 @@
+/*styletile*/
+
+#styletile img {
+    max-width: 100vw;
+}
+
+/*scene*/
+
+#scene {
+    width: 100vw;
+    height: 56.25vw;
+    position: relative;
+    overflow: hidden;
+}
+
+#baggrund {
+    width: 100vw;
+    height: 56.25vw;
+    background-image: url(grafik/baggrund-01.png);
+    background-size: 100%;
+}
+
+#mellemgrund2 {
+    width: 100vw;
+    height: 56.25vw;
+    background-image: url(grafik/mellemgrund2-01.png);
+    background-size: 100%;
+    position: absolute;
+    bottom: 0;
+}
+
+#mellemgrund {
+    width: 100vw;
+    height: 56.25vw;
+    background-image: url(grafik/mellemgrund-01.png);
+    background-size: 100%;
+    position: absolute;
+    bottom: 0;
+}
+
+#riskiks {
+    background-image: url(grafik/riskiksknap.svg);
+    top: 19vw;
+    left: 37vw;
+    background-size: 100%;
+    width: 8vw;
+    height: 8vw;
+    position: absolute;
+}
+
+#rosiner {
+    background-image: url(grafik/rosinknap.svg);
+    top: 15vw;
+    left: 46vw;
+    background-size: 100%;
+    width: 8vw;
+    height: 8vw;
+    position: absolute;
+}
+
+.buttons_none {
+    display: none;
+}
+
+#forgrund {
+    width: 100vw;
+    height: 56.25vw;
+    background-image: url(grafik/forgrund-01.png);
+    background-size: 100%;
+    position: absolute;
+    bottom: 0;
+}
+
+
+
+#skyer,
+#skyer2,
+#skyer3 {
+    width: 15.01vw;
+    height: 4.3vw;
+    background-image: url(grafik/skyer.svg);
+    background-size: 100%;
+    position: absolute;
+    animation-name: skyer_move;
+    animation-duration: 30s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: linear;
+
+}
+
+@keyframes skyer_move {
+    from {}
+    to {
+        transform: translateX(-100vw);
+    }
+}
+
+#skyer {
+    top: 3vw;
+}
+
+#skyer2 {
+    top: 0vw;
+    right: 60vw;
+}
+
+#skyer3 {
+    top: 4vw;
+    right: 0;
+}
+
+/*karakterer*/
+
+/*baby*/
+
+#baby_container {
+    position: absolute;
+    top: 10vw;
+    right: 22vw;
+}
+
+#baby_sprite {
+    width: 31.25vw;
+    height: 27.6vw;
+    background-image: url(grafik/spritesheet_baby_farve.svg);
+    background-size: 1200% 500%;
+}
+
+.baby_blinke {
+    animation-name: baby_blinke_kf;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: steps(5);
+}
+
+@keyframes baby_blinke_kf {
+    0% {
+        background-position: 0 -400%;
+    }
+    100% {
+        background-position: -500% -400%;
+    }
+}
+
+.baby_vinke {
+    animation-name: baby_vinke_kf;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+    animation-timing-function: steps(9);
+}
+
+@keyframes baby_vinke_kf {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: -900% 0%;
+    }
+}
+
+.baby {
+    background-position: -900% 0;
+}
+
+
+.baby_tigge {
+    animation-name: baby_tigge_kf;
+    animation-duration: 2.5s;
+    animation-iteration-count: 1;
+    animation-timing-function: steps(9);
+}
+
+@keyframes baby_tigge_kf {
+    0% {
+        background-position: 0% -100%;
+    }
+    100% {
+        background-position: -900% -100%;
+    }
+}
+
+.baby_daadyr {
+    animation-name: baby_daadyr_kf;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+    animation-timing-function: steps(5);
+}
+
+@keyframes baby_daadyr_kf {
+    0% {
+        background-position: 0 -200%;
+    }
+    100% {
+        background-position: -500% -200%;
+    }
+}
+
+.baby_side {
+    background-position: -400% -200%;
+}
+
+.baby_spiseriskiks {
+    animation-name: baby_spiseriskiks_kf;
+    animation-duration: 3s;
+    animation-iteration-count: 1;
+    animation-timing-function: steps(12);
+}
+
+@keyframes baby_spiseriskiks_kf {
+
+    0% {
+        background-position: 0 -300%;
+    }
+    100% {
+        background-position: -1200% -300%;
+    }
+}
+
+.baby_vinkefarvel {
+    animation-name: baby_vinkefarvel_kf;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: steps(9);
+}
+
+@keyframes baby_vinkefarvel_kf {
+
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: -900% 0%;
+    }
+}
+
+/*mor*/
+
+#mor_container {
+    position: absolute;
+    top: -3vw;
+    left: 19vw;
+}
+
+#mor_sprite {
+
+    width: 33.85vw;
+    height: 43.22vw;
+    background-image: url(grafik/spritesheet_mor_farve.svg);
+    background-size: 300% 100%;
+}
+
+.mor_armsup {
+    background-position: -200% 0%;
+}
+
+.mor_armsdown {
+    background-position: 0% 0%;
+}
+
+.mor_arme {
+    animation-name: mor_arme_kf;
+    animation-duration: 1.5s;
+    animation-iteration-count: 1;
+    animation-timing-function: steps(3);
+}
+
+@keyframes mor_arme_kf {
+
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: -300% 0%;
+    }
+}
+
+
+
+/*maage*/
+
+#maage_container {
+    position: absolute;
+}
+
+#maage_sprite {
+    width: 5vw;
+    height: 5.06vw;
+    background-image: url(grafik/spritesheet_maage_farve.svg);
+    background-size: 1500% 400%;
+}
+
+.maage_walkcycle_left {
+    animation-name: maage_walkcycle_left_kf;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: steps(6);
+    animation-fill-mode: forwards;
+}
+
+@keyframes maage_walkcycle_left_kf {
+
+    0% {
+        background-position: 0 -200%;
+    }
+    100% {
+        background-position: -600% -200%;
+    }
+}
+
+.maage_move_left {
+    animation-name: maage_move_left_kf;
+    animation-duration: 6s;
+    animation-iteration-count: 1;
+}
+
+@keyframes maage_move_left_kf {
+    0% {
+        top: 23vw;
+        right: -5vw;
+    }
+    100% {
+
+        top: 25vw;
+        right: 8vw;
+        transform: scale(1.2);
+    }
+}
+
+.maage_position_in {
+    right: 8vw;
+    top: 25vw;
+}
+
+.maage_kigge {
+    animation-name: maage_kigge_kf;
+    animation-duration: 2.5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: steps(2);
+}
+
+@keyframes maage_kigge_kf {
+    0% {
+        background-position: 0 -300%;
+        transform: scale(1.2);
+    }
+    100% {
+        background-position: -200% -300%;
+        transform: scale(1.2);
+    }
+}
+
+.maage_walkcycle_right {
+    animation-name: maage_walkcycle_right_kf;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: steps(6);
+}
+
+@keyframes maage_walkcycle_right_kf {
+
+    0% {
+        background-position: 0 -100%;
+
+    }
+    100% {
+        background-position: -600% -100%;
+    }
+}
+
+.maage_move_right {
+    animation-name: maage_move_right_kf;
+    animation-duration: 6s;
+    animation-iteration-count: 1;
+}
+
+@keyframes maage_move_right_kf {
+    0% {
+        top: 25vw;
+        right: 7vw;
+        transform: scale(1.2);
+    }
+    100% {
+        top: 28vw;
+        right: -7vw;
+        transform: scale(1.5);
+    }
+}
+
+/*
+.maage_spiserosiner {
+    animation-name: maage_spiserosiner_kf;
+}
+
+@keyframes maage_spiserosiner_kf {}
+*/
