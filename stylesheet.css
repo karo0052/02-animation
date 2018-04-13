@@ -1,3 +1,25 @@
+/*titelbillede*/
+
+#titelbillede {
+    width: 100vw;
+    height: 56.25vw;
+    background-image: url(grafik/titelbillede.png);
+    background-size: 100%;
+}
+
+#titel {
+    position: absolute;
+    top: 18vw;
+    left: 6vw;
+}
+
+#titel a {
+    text-decoration: none;
+    color: rgb(255, 141, 167);
+    font-family: 'Comfortaa', cursive;
+    font-size: 7vw;
+}
+
 /*styletile*/
 
 #styletile img {
@@ -5,6 +27,10 @@
 }
 
 /*scene*/
+
+#knapper {
+    display: none;
+}
 
 #scene {
     width: 100vw;
@@ -56,6 +82,20 @@
     width: 8vw;
     height: 8vw;
     position: absolute;
+}
+
+.buttons_pulse {
+    animation-duration: 0.8s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-name: buttons_pulse;
+}
+
+@keyframes buttons_pulse {
+    from {}
+    to {
+        transform: scale(1.1);
+    }
 }
 
 .buttons_none {
@@ -183,7 +223,7 @@
 .baby_daadyr {
     animation-name: baby_daadyr_kf;
     animation-duration: 2s;
-    animation-iteration-count: 1;
+    animation-iteration-count: infinite;
     animation-timing-function: steps(5);
 }
 
@@ -281,10 +321,11 @@
 
 #maage_container {
     position: absolute;
+    animation-timing-function: linear;
 }
 
 #maage_sprite {
-    width: 5vw;
+    width: 4.9vw;
     height: 5.06vw;
     background-image: url(grafik/spritesheet_maage_farve.svg);
     background-size: 1500% 400%;
@@ -292,7 +333,7 @@
 
 .maage_walkcycle_left {
     animation-name: maage_walkcycle_left_kf;
-    animation-duration: 1.5s;
+    animation-duration: 1.1s;
     animation-iteration-count: infinite;
     animation-timing-function: steps(6);
     animation-fill-mode: forwards;
@@ -334,7 +375,7 @@
 
 .maage_kigge {
     animation-name: maage_kigge_kf;
-    animation-duration: 2.5s;
+    animation-duration: 2s;
     animation-iteration-count: infinite;
     animation-timing-function: steps(2);
 }
@@ -352,7 +393,7 @@
 
 .maage_walkcycle_right {
     animation-name: maage_walkcycle_right_kf;
-    animation-duration: 2s;
+    animation-duration: 1.1s;
     animation-iteration-count: infinite;
     animation-timing-function: steps(6);
 }
