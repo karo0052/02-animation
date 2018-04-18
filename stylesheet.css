@@ -11,6 +11,17 @@
     position: absolute;
     top: 18vw;
     left: 6vw;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-name: titel_pulse;
+}
+
+@keyframes titel_pulse {
+    from {}
+    to {
+        transform: scale(0.9);
+    }
 }
 
 #titel a {
@@ -67,7 +78,7 @@
 #riskiks {
     background-image: url(grafik/riskiksknap.svg);
     top: 19vw;
-    left: 37vw;
+    left: 33vw;
     background-size: 100%;
     width: 8vw;
     height: 8vw;
@@ -77,11 +88,55 @@
 #rosiner {
     background-image: url(grafik/rosinknap.svg);
     top: 15vw;
-    left: 46vw;
+    left: 42vw;
     background-size: 100%;
     width: 8vw;
     height: 8vw;
     position: absolute;
+}
+
+#rosinerne {
+    width: 150vw;
+    height: 150vw;
+    position: absolute;
+    background-color: aqua;
+}
+
+.none {
+    display: none;
+}
+
+.rosin {
+    width: 0.94vw;
+    height: 0.94vw;
+    background-size: 100%;
+    background-image: url(grafik/rosin.png);
+    position: absolute;
+}
+
+.pos1 {
+    top: 38.6vw;
+    right: 38.6vw;
+}
+
+.pos2 {
+    top: 41.93vw;
+    right: 38.7vw;
+}
+
+.pos3 {
+    top: 41.5vw;
+    right: 34.5vw;
+}
+
+.pos4 {
+    top: 43.45vw;
+    right: 31.1vw;
+}
+
+.pos5 {
+    top: 46.89vw;
+    right: 36.05vw;
 }
 
 .buttons_pulse {
@@ -95,6 +150,23 @@
     from {}
     to {
         transform: scale(1.1);
+    }
+}
+
+.rosin_pulse {
+    animation-duration: 0.8s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-direction: alternate;
+    animation-name: rosin_pulse;
+}
+
+@keyframes rosin_pulse {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.5);
     }
 }
 
@@ -156,15 +228,15 @@
 
 #baby_container {
     position: absolute;
-    top: 10vw;
-    right: 22vw;
+    top: 10.4vw;
+    right: 25.5vw;
 }
 
 #baby_sprite {
     width: 31.25vw;
-    height: 27.6vw;
-    background-image: url(grafik/spritesheet_baby_farve.svg);
-    background-size: 1200% 500%;
+    height: 38vw;
+    background-image: url(grafik/Artboard1.svg);
+    background-size: 1200% 900%;
 }
 
 .baby_blinke {
@@ -240,6 +312,10 @@
     background-position: -400% -200%;
 }
 
+.baby_sur {
+    background-position: 0% -600%;
+}
+
 .baby_spiseriskiks {
     animation-name: baby_spiseriskiks_kf;
     animation-duration: 3s;
@@ -274,12 +350,71 @@
     }
 }
 
+.baby_tabe_rosiner {
+    animation-name: baby_tabe_rosiner_kf;
+    animation-duration: 1.2s;
+    animation-iteration-count: 1;
+    animation-timing-function: steps(5);
+}
+
+@keyframes baby_tabe_rosiner_kf {
+
+    0% {
+        background-position: 0 -500%;
+    }
+    100% {
+        background-position: -500% -500%;
+    }
+}
+
+.baby_rosiner {
+    background-position: -400% -500%;
+}
+
+.baby_graeder {
+    animation-name: baby_graeder_kf;
+    animation-duration: 3s;
+    animation-iteration-count: 2;
+    animation-timing-function: steps(12);
+}
+
+@keyframes baby_graeder_kf {
+
+    0% {
+        background-position: 0 -600%;
+    }
+    100% {
+        background-position: -1200% -600%;
+    }
+}
+
+.baby_mmmm {
+    animation-name: baby_mmmm_kf;
+    animation-duration: 1.5s;
+    animation-iteration-count: 1;
+    animation-timing-function: steps(3);
+}
+
+@keyframes baby_mmmm_kf {
+
+    0% {
+        background-position: 0 -700%;
+    }
+    100% {
+        background-position: -300% -700%;
+    }
+}
+
+.baby_glad {
+    background-position: 0% -800%;
+}
+
 /*mor*/
 
 #mor_container {
     position: absolute;
     top: -3vw;
-    left: 19vw;
+    left: 15vw;
 }
 
 #mor_sprite {
@@ -325,9 +460,9 @@
 }
 
 #maage_sprite {
-    width: 4.9vw;
-    height: 5.06vw;
-    background-image: url(grafik/spritesheet_maage_farve.svg);
+    width: 38.02vw;
+    height: 38.54vw;
+    background-image: url(grafik/Artboard.svg);
     background-size: 1500% 400%;
 }
 
@@ -351,26 +486,36 @@
 
 .maage_move_left {
     animation-name: maage_move_left_kf;
-    animation-duration: 6s;
+    animation-duration: 4s;
     animation-iteration-count: 1;
 }
 
 @keyframes maage_move_left_kf {
     0% {
-        top: 23vw;
-        right: -5vw;
+        top: 6vw;
+        right: -20vw;
+        transform: scale(0.1);
     }
     100% {
 
-        top: 25vw;
-        right: 8vw;
-        transform: scale(1.2);
+        top: 8vw;
+        right: -8vw;
+        transform: scale(0.15);
     }
 }
 
 .maage_position_in {
-    right: 8vw;
-    top: 25vw;
+    right: -8vw;
+    top: 8vw;
+}
+
+.maage_position_two {
+    top: 9vw;
+    right: 2vw;
+}
+
+.maage_side {
+    background-position: -1400% 0%;
 }
 
 .maage_kigge {
@@ -383,11 +528,11 @@
 @keyframes maage_kigge_kf {
     0% {
         background-position: 0 -300%;
-        transform: scale(1.2);
+        transform: scale(0.15);
     }
     100% {
         background-position: -200% -300%;
-        transform: scale(1.2);
+        transform: scale(0.15);
     }
 }
 
@@ -411,27 +556,72 @@
 
 .maage_move_right {
     animation-name: maage_move_right_kf;
-    animation-duration: 6s;
+    animation-duration: 4s;
     animation-iteration-count: 1;
 }
 
 @keyframes maage_move_right_kf {
     0% {
-        top: 25vw;
-        right: 7vw;
-        transform: scale(1.2);
+        top: 8vw;
+        right: -8vw;
+        transform: scale(0.15);
     }
     100% {
-        top: 28vw;
-        right: -7vw;
-        transform: scale(1.5);
+        top: 10vw;
+        right: -25vw;
+        transform: scale(0.2);
     }
 }
 
-/*
-.maage_spiserosiner {
-    animation-name: maage_spiserosiner_kf;
+.maage_move_left2 {
+    animation-name: maage_move_left2_kf;
+    animation-duration: 4s;
+    animation-iteration-count: 1;
 }
 
-@keyframes maage_spiserosiner_kf {}
-*/
+@keyframes maage_move_left2_kf {
+    0% {
+        top: 12vw;
+        right: -30vw;
+    }
+    100% {
+        top: 9vw;
+        right: 2vw;
+    }
+}
+
+
+.maage_spiserosiner {
+    animation-name: maage_spiserosiner_kf;
+    animation-duration: 5s;
+    animation-iteration-count: 1;
+    animation-timing-function: steps(15);
+}
+
+@keyframes maage_spiserosiner_kf {
+
+    0% {
+        background-position: 0 0;
+
+    }
+    100% {
+        background-position: -1500% 0;
+    }
+}
+
+.maage_move_right2 {
+    animation-name: maage_move_right2_kf;
+    animation-duration: 3s;
+    animation-iteration-count: 1;
+}
+
+@keyframes maage_move_right2_kf {
+    0% {
+        top: 9vw;
+        right: 2vw;
+    }
+    100% {
+        top: 12vw;
+        right: -40vw;
+    }
+}
