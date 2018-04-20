@@ -28,7 +28,7 @@ body {
     }
 }
 
-#titel a {
+#titel p {
     text-decoration: none;
     color: rgb(255, 141, 167);
     font-family: 'Comfortaa', cursive;
@@ -279,7 +279,7 @@ body {
 
 #baby_sprite {
     width: 31.25vw;
-    height: 37.8vw;
+    height: 37.7vw;
     background-image: url(grafik/spritesheet_baby.png);
     background-size: 1200% 900%;
 }

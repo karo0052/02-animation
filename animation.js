@@ -41,6 +41,29 @@ $(window).on("load", sidenVises);
 
 function sidenVises() {
     console.log("sidenVises");
+    $("#start").on("click", spilLyd);
+}
+
+function spilLyd() {
+    console.log("spilLyd");
+    $("#start").addClass("none");
+    $("#musik_lyd")[0].play();
+    $("#musik_lyd")[0].volume = 0.4;
+    $("#titel").removeClass("none");
+    $("#titelbillede").removeClass("none");
+    $("#titel").on("click", startScenen);
+}
+
+
+function startScenen() {
+    console.log("startScenen");
+    $("#titel").off("click", startScenen);
+    $("#titel").addClass("none");
+    $("#titelbillede").addClass("none");
+    $("#musik_lyd")[0].pause();
+
+    $("#indhold").removeClass("none");
+
     // Start lyd: fuglefløjt_støj
     $("#stoej_fuglefloejt_lyd")[0].play();
     $("#stoej_fuglefloejt_lyd")[0].volume = 0.1;
@@ -384,7 +407,7 @@ function startTimer() {
     $("#timer_lyd")[0].play();
     $("#timer_lyd")[0].volume = 0.4;
     $("#tension_lyd")[0].play();
-    $("#tension_lyd")[0].volume = 0.3;
+    $("#tension_lyd")[0].volume = 0.2;
 
     kanKlikke();
 }
@@ -401,6 +424,7 @@ function babySpiseRosin() {
     console.log("babySpiseRosin");
     $(".rosin").off("click");
     $("#click_lyd")[0].play();
+    $("#click_lyd")[0].volume = 0.5;
     $(".rosin").removeClass("rosin_pulse");
     $("#baby_sprite").removeClass("baby_sur");
     $(this).hide();
