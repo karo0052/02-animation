@@ -1,6 +1,7 @@
 // lave console.log med hvert trin-navn, så man kan tjekke i inspect at alle trin virker!
 
 var antalRosiner = 0;
+var myTimer;
 
 /*
 elementer:
@@ -65,7 +66,10 @@ function babySigerHej() {
     // Spil lyd: hej
     $("#hej_lyd")[0].play();
     // når sprite-anim: .baby_vinker er færdig: maageGaarModVenstre
-    $("#baby_sprite").on("animationend", maageGaarModVenstre);
+
+    //    $("#baby_sprite").on("animationend", maageGaarModVenstre);
+    setTimeout(maageGaarModVenstre, 300);
+
 }
 
 //knap til sømbræt
@@ -77,10 +81,8 @@ function maageGaarModVenstre() {
     console.log("maageGaarModVenstre");
 
     $("#baby_sprite").off("animationend", maageGaarModVenstre);
-    $("#baby_sprite").removeClass("baby_vinke");
+
     // Vis sprite: .baby
-
-
     $("#baby_sprite").addClass(".baby");
     // Start flytte-anim: .maage_move_left
     $("#maage_container").addClass("maage_move_left");
@@ -96,7 +98,7 @@ function maageGaarModVenstre() {
 
 function maageKigger() {
     console.log("maageKigger");
-
+    $("#baby_sprite").removeClass("baby_vinke");
     $("#maage_container").off("animationend", maageKigger);
     $("#maage_container").removeClass("maage_move_left");
     // Stop sprite-anim: .maage_walkcycle_left
@@ -282,12 +284,16 @@ function babyVinkerFarvel() {
     $("#baby_sprite").addClass("baby_vinkefarvel");
     // Start lyd: hejhej
     $("#hejhej_lyd")[0].play();
+
+
+    $("#baby_sprite").on("animationend", afslutning);
 }
 
 //Brugeren har klikket på rosinerne - højre ben af historien
 
 function klikPaaKnapRosiner() {
     console.log("klikpåknaprosiner");
+    $("#speak_lyd")[0].pause();
     $("#rosiner").off("click", klikPaaKnapRosiner);
     $("#riskiks").removeClass("buttons_pulse");
     $("#rosiner").removeClass("buttons_pulse");
@@ -314,7 +320,8 @@ function babyTaberRosiner() {
     $("#mor_sprite").addClass("mor_armsdown");
 
     // når der er gået 1 sek: rosinLyd
-    setTimeout(rosinLyd, 1000);
+    setTimeout(rosinLyd, 1300);
+    $("#baby_sprite").on("animationend", maageKommer);
 }
 
 function rosinLyd() {
@@ -322,7 +329,6 @@ function rosinLyd() {
     //start lyd for rosiner
     $("#rosiner_falder_lyd")[0].play();
     //når animationen er færdig --> maageKommer
-    $("#baby_sprite").on("animationend", maageKommer);
 }
 
 function maageKommer() {
@@ -350,18 +356,36 @@ function randomValg() {
     $("#maage_sprite").addClass("maage_side");
     $("#maage_container").addClass("maage_position_two");
     if (Math.random() <= 0.5) {
-        startTimer();
+        hjaelpBaby();
     } else {
         maageSpiserRosiner();
     }
 }
 
 //Der startes en timer og brugeren skal interagere for at nå til hhv slutning A eller B afhængigt af brugerens interaktion
+function hjaelpBaby() {
+    console.log("hjaelpBaby");
+    //start speak
+    $("#speak2_lyd")[0].play();
+    $("#stoej_fuglefloejt_lyd")[0].pause();
+
+    $("#speak2_lyd").on("ended", startTimer);
+
+}
 
 function startTimer() {
     console.log("startTimer");
     $("#baby_sprite").removeClass("baby_rosiner");
     $("#baby_sprite").addClass("baby_sur");
+    myTimer = setTimeout(tidenGaaet, 12000);
+    console.log("timer startet");
+    $("#timer_sprite").removeClass("none");
+    $("#timer_sprite").addClass("timer");
+    $("#timer_lyd")[0].play();
+    $("#timer_lyd")[0].volume = 0.4;
+    $("#tension_lyd")[0].play();
+    $("#tension_lyd")[0].volume = 0.3;
+
     kanKlikke();
 }
 
@@ -375,19 +399,28 @@ function kanKlikke() {
 
 function babySpiseRosin() {
     console.log("babySpiseRosin");
-    $(".rosin").off("click", babySpiseRosin);
+    $(".rosin").off("click");
+    $("#click_lyd")[0].play();
     $(".rosin").removeClass("rosin_pulse");
     $("#baby_sprite").removeClass("baby_sur");
     $(this).hide();
     antalRosiner++;
+    if (antalRosiner >= 5) {
+        $("#tension_lyd")[0].pause();
+        $("#timer_lyd")[0].pause();
+        $("#stoej_fuglefloejt_lyd")[0].play();
+        $("#stoej_fuglefloejt_lyd")[0].volume = 0.1;
+        $("#timer_sprite").addClass("none");
+        clearTimeout(myTimer);
+    }
     $("#baby_sprite").addClass("baby_mmmm");
     $("#baby_mmmm_lyd")[0].play();
     $("#baby_sprite").on("animationend", faerdig);
-
 }
 
 function faerdig() {
     console.log("faerdig");
+
     $("#baby_sprite").removeClass("baby_mmmm");
     $("#baby_sprite").off("animationend", faerdig);
     if (antalRosiner >= 5) {
@@ -400,10 +433,29 @@ function faerdig() {
 
 function babyGlad() {
     console.log("babyGlad");
+    $("#tension_lyd")[0].pause();
+    $("#stoej_fuglefloejt_lyd")[0].play();
+    $("#stoej_fuglefloejt_lyd")[0].volume = 0.1;
     $("#baby_sprite").addClass("baby_glad");
     $("#baby_fnis_lyd")[0].play();
+    clearTimeout(myTimer);
+    $("#timer_sprite").addClass("none");
+    setTimeout(babyVinkerFarvel2, 1200);
+}
 
-    setTimeout(babyVinkerFarvel, 1200);
+function babyVinkerFarvel2() {
+    console.log("babyVinkerFarvel2");
+
+    $("#baby_sprite").removeClass("baby_spiseriskiks");
+    // Stop lyd: riskiks
+    // Start sprite-anim: .baby_vinkefarvel
+    $("#baby_sprite").addClass("baby_vinkefarvel");
+    // Start lyd: hejhej
+    $("#hejhej_lyd")[0].play();
+    $("#maage_sprite").addClass("maage_walkcycle_right");
+    $("#maage_container").addClass("maage_move_right2");
+
+    $("#baby_sprite").on("animationend", afslutning);
 }
 
 //Højre ben af historien
@@ -433,6 +485,34 @@ function babyGraeder() {
 
     $("#baby_sprite").addClass("baby_graeder");
     $("#graad_lyd")[0].play();
+    $("#graad_lyd")[0].volume = 0.7;
     $("#maage_sprite").addClass("maage_walkcycle_right");
     $("#maage_container").addClass("maage_move_right2");
+    $("#rosindiv").addClass("none");
+    $(".rosin").removeClass("rosin_pulse");
+
+    $("#baby_sprite").on("animationend", afslutning);
+}
+
+function tidenGaaet() {
+    console.log("tiden er gået");
+    $("#timer_sprite").addClass("none");
+    $("#tension_lyd")[0].pause();
+    $("#stoej_fuglefloejt_lyd")[0].play();
+    $("#stoej_fuglefloejt_lyd")[0].volume = 0.1;
+    $("#baby_sprite").addClass("baby_sur");
+    $(".rosin").addClass("none");
+    $(".rosin").removeClass("rosin_pulse");
+    $("#maage_sprite").addClass("maage_spiserosiner");
+    $("#maage_rosiner_lyd")[0].play();
+    $("#maage_sprite").on("animationend", babyGraeder);
+}
+
+function afslutning() {
+    console.log("afslutning");
+    $("#indhold").addClass("none");
+    $("#afslutning").addClass("afslutning");
+    $("#musik_lyd")[0].play();
+    $("#musik_lyd")[0].volume = 0.4;
+    $("#stoej_fuglefloejt_lyd")[0].pause();
 }

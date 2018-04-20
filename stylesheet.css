@@ -1,3 +1,7 @@
+body {
+    background-color: #FFF2BC;
+}
+
 /*titelbillede*/
 
 #titelbillede {
@@ -43,6 +47,13 @@
     display: none;
 }
 
+.afslutning {
+    width: 100vw;
+    height: 56.25vw;
+    background-image: url(grafik/afslutning.png);
+    background-size: 100%;
+}
+
 #scene {
     width: 100vw;
     height: 56.25vw;
@@ -75,6 +86,35 @@
     bottom: 0;
 }
 
+#timer_sprite {
+    background-image: url(grafik/timer_spritesheet.svg);
+    top: -1vw;
+    left: 4vw;
+    background-size: 500% 100%;
+    width: 16.67vw;
+    height: 20.83vw;
+    position: absolute;
+}
+
+.timer {
+    animation-name: timer_kf;
+    animation-duration: 10s;
+    animation-iteration-count: 1;
+    animation-timing-function: steps(5);
+}
+
+@keyframes timer_kf {
+
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: -500% 0%;
+    }
+}
+
+
+
 #riskiks {
     background-image: url(grafik/riskiksknap.svg);
     top: 19vw;
@@ -83,6 +123,7 @@
     width: 8vw;
     height: 8vw;
     position: absolute;
+    cursor: pointer;
 }
 
 #rosiner {
@@ -93,6 +134,7 @@
     width: 8vw;
     height: 8vw;
     position: absolute;
+    cursor: pointer;
 }
 
 #rosinerne {
@@ -100,6 +142,7 @@
     height: 150vw;
     position: absolute;
     background-color: aqua;
+    cursor: pointer;
 }
 
 .none {
@@ -112,6 +155,7 @@
     background-size: 100%;
     background-image: url(grafik/rosin.png);
     position: absolute;
+    cursor: pointer;
 }
 
 .pos1 {
@@ -159,6 +203,7 @@
     animation-timing-function: linear;
     animation-direction: alternate;
     animation-name: rosin_pulse;
+    cursor: pointer;
 }
 
 @keyframes rosin_pulse {
@@ -234,8 +279,8 @@
 
 #baby_sprite {
     width: 31.25vw;
-    height: 38vw;
-    background-image: url(grafik/Artboard1.svg);
+    height: 37.8vw;
+    background-image: url(grafik/spritesheet_baby.png);
     background-size: 1200% 900%;
 }
 
@@ -336,7 +381,7 @@
 .baby_vinkefarvel {
     animation-name: baby_vinkefarvel_kf;
     animation-duration: 2s;
-    animation-iteration-count: infinite;
+    animation-iteration-count: 2;
     animation-timing-function: steps(9);
 }
 
@@ -352,9 +397,9 @@
 
 .baby_tabe_rosiner {
     animation-name: baby_tabe_rosiner_kf;
-    animation-duration: 1.2s;
+    animation-duration: 1.5s;
     animation-iteration-count: 1;
-    animation-timing-function: steps(5);
+    animation-timing-function: steps(7);
 }
 
 @keyframes baby_tabe_rosiner_kf {
@@ -363,12 +408,12 @@
         background-position: 0 -500%;
     }
     100% {
-        background-position: -500% -500%;
+        background-position: -700% -500%;
     }
 }
 
 .baby_rosiner {
-    background-position: -400% -500%;
+    background-position: -600% -500%;
 }
 
 .baby_graeder {
@@ -421,7 +466,7 @@
 
     width: 33.85vw;
     height: 43.22vw;
-    background-image: url(grafik/spritesheet_mor_farve.svg);
+    background-image: url(grafik/mor_spritesheet.svg);
     background-size: 300% 100%;
 }
 
@@ -435,7 +480,7 @@
 
 .mor_arme {
     animation-name: mor_arme_kf;
-    animation-duration: 1.5s;
+    animation-duration: 1s;
     animation-iteration-count: 1;
     animation-timing-function: steps(3);
 }
@@ -462,7 +507,7 @@
 #maage_sprite {
     width: 38.02vw;
     height: 38.54vw;
-    background-image: url(grafik/Artboard.svg);
+    background-image: url(grafik/maage_spritesheet.png);
     background-size: 1500% 400%;
 }
 
@@ -486,7 +531,7 @@
 
 .maage_move_left {
     animation-name: maage_move_left_kf;
-    animation-duration: 4s;
+    animation-duration: 2.5s;
     animation-iteration-count: 1;
 }
 
@@ -520,7 +565,7 @@
 
 .maage_kigge {
     animation-name: maage_kigge_kf;
-    animation-duration: 2s;
+    animation-duration: 1s;
     animation-iteration-count: infinite;
     animation-timing-function: steps(2);
 }
@@ -556,7 +601,7 @@
 
 .maage_move_right {
     animation-name: maage_move_right_kf;
-    animation-duration: 4s;
+    animation-duration: 2.5s;
     animation-iteration-count: 1;
 }
 
@@ -575,7 +620,7 @@
 
 .maage_move_left2 {
     animation-name: maage_move_left2_kf;
-    animation-duration: 4s;
+    animation-duration: 3s;
     animation-iteration-count: 1;
 }
 
@@ -613,6 +658,7 @@
     animation-name: maage_move_right2_kf;
     animation-duration: 3s;
     animation-iteration-count: 1;
+    animation-fill-mode: both;
 }
 
 @keyframes maage_move_right2_kf {
